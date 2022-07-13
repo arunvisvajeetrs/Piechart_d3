@@ -1,0 +1,19 @@
+{
+  "name": "piechart_d3",
+  "version": "1.0.0",
+  "description": "D3 component lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arunvisvajeetrs/Piechart_d3.git"
+  },
+  "author": "Arun Visvajedt RS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arunvisvajeetrs/Piechart_d3/issues"
+  },
+  "homepage": "https://github.com/arunvisvajeetrs/Piechart_d3#readme"
+}
