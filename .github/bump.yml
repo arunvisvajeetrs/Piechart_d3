@@ -75,4 +75,4 @@ files:
   - file-path: 'package-lock.json'
     line: 3
   - file-path: 'gradle.properties'
-    line: 2
+    line: 5
