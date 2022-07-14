@@ -1,36 +1,16 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      bump:
-        description: 'bump type, major or minor or patch or empty string'
-        default: ''
-      dry_run:
-        description: 'dry run, true or false'
-        default: 'false'
-      draft:
-        description: 'draft, true or false'
-        default: 'false'
-      pre_release:
-        description: 'pre release, true or false'
-        default: 'false'
+  pull_request:
+    types: closed
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Tag
+        uses: K-Phoen/semver-release-action@master
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - run: npm install
-      - uses: MeilCli/bump-release-action@v1
-        with:
-          config_path: '.github/bump.yml'
-          bump: ${{ github.event.inputs.bump }}
-          dry_run: ${{ github.event.inputs.dry_run }}
-          draft: ${{ github.event.inputs.draft }}
-          pre_release: ${{ github.event.inputs.pre_release }}
+          release_branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
