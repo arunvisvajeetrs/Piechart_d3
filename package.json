@@ -1,6 +1,6 @@
 {
   "name": "piechart_d3",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "D3 component lib",
   "main": "index.js",
   "scripts": {
