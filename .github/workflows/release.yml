@@ -1,24 +1,31 @@
-name: Release
-
 on:
-  push:
-    branches: [ master ]
+  pull_request:
+    branches:
+      - master
+    types: [closed]
 
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   release:
+    if: github.event.pull_request.merged == true
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-      - uses: CupOfTea696/gh-action-auto-release@v1.0.0
+      - name: Create a tag
+        uses: actions/checkout@v3
+        uses: Klemensas/action-autotag@stable
         with:
-          title: "Release: $version"
-          tag: "v$semver"
-          draft: false
-          regex: ""
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          tag_prefix: "v"
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          title: MyReleaseMessage
