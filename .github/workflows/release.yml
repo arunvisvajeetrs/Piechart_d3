@@ -27,4 +27,5 @@ jobs:
         env:
           token: ${{ secrets.GITHUB_TOKEN }}
         with:  
+          generateReleaseNotes: true
           tag: ${{ steps.create_tag.outputs.tagname }}
