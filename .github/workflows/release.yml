@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create a tag
+        id: create_tag
         uses: Klemensas/action-autotag@stable
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -25,4 +26,4 @@ jobs:
         uses: ncipollo/release-action@v1
         env:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.previous_step.outputs.tagname }}
+          tag: ${{ steps.create_tag.outputs.tagname }}
