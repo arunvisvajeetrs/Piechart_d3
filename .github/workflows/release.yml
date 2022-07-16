@@ -28,4 +28,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         with:  
           generateReleaseNotes: true
+          prerelease: ${{ contains(steps.create_tag.outputs.tagname, "-beta.") }}
           tag: ${{ steps.create_tag.outputs.tagname }}
