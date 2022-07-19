@@ -1,3 +1,7 @@
+name: Automate github release
+# Pushes a tag whenever the version in package.json changes and creates a github release
+# This is triggered only when a Pull Request is merged to master and version in package json changes
+
 on:
   pull_request:
     branches:
@@ -26,7 +30,8 @@ jobs:
         uses: ncipollo/release-action@v1
         env:
           token: ${{ secrets.GITHUB_TOKEN }}
-        with:  
+        with:
+          draft: true  
           generateReleaseNotes: true
           prerelease: ${{ contains(steps.create_tag.outputs.tagname, '-beta.') }}
           tag: ${{ steps.create_tag.outputs.tagname }}
