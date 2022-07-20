@@ -29,7 +29,7 @@ jobs:
       - name: Create a Release
         uses: ncipollo/release-action@v1
         env:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TEST_RELEASE_TOKEN }}
         with:
           draft: true  
           generateReleaseNotes: true
