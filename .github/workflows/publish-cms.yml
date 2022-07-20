@@ -2,7 +2,7 @@ name: Build and deploy to Prod
 
 on:
   release:
-    types: [created, published]
+    types: [published]
 
 jobs:
   build-and-deploy:
