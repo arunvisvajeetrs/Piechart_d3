@@ -19,11 +19,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false 
       - name: Create a tag
         id: create_tag
         uses: Klemensas/action-autotag@stable
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.TEST_RELEASE_TOKEN }}"
         with:
           tag_prefix: "v"
       - name: Create a Release
