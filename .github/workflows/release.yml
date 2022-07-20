@@ -31,7 +31,6 @@ jobs:
         env:
           token: ${{ secrets.TEST_RELEASE_TOKEN }}
         with:
-          draft: true  
           generateReleaseNotes: true
           prerelease: ${{ contains(steps.create_tag.outputs.tagname, '-beta.') }}
           tag: ${{ steps.create_tag.outputs.tagname }}
