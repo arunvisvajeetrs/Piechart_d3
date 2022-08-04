@@ -1,11 +1,11 @@
-name: Automate github release
+name: Create PR for release
 # Pushes a tag whenever the version in package.json changes and creates a github release
 # This is triggered only when a Pull Request is merged to master and version in package json changes
 
 on:
   push:
     branches:
-      - release_v*.*.*
+      - 'release_v*.*.*'
     paths:
       - 'gradle.properties'
 
