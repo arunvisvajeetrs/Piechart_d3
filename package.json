@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "git checkout -b release_$npm_package_version",
+    "version": "git checkout -b release_v$npm_package_version",
     "postversion": "git push -u origin release_v$npm_package_version",
     "release": "bump --commit 'Release: v%s' gradle.properties package.json package-lock.json"
   },
