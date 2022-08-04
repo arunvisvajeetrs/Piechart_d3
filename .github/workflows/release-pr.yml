@@ -3,16 +3,17 @@ name: Create PR for release
 # This is triggered only when a Pull Request is merged to master and version in package json changes
 
 on:
-  push:
+  create:
     branches:
       - 'release_v*.*.*'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  release:
+  create_pr:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    if: ${{ contains(github.ref, 'refs/heads/releases_v') }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
