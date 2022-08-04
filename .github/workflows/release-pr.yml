@@ -13,7 +13,7 @@ jobs:
   create_pr:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: ${{ contains(github.ref, 'refs/heads/releases_v') }}
+    if: ${{ contains(github.ref, 'refs/heads/release_v') }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
