@@ -5,7 +5,7 @@ name: Create PR for release
 on:
   push:
     branches:
-      - 'release_v*.*.*'
+      - 'release_v**'
     paths:
       - 'gradle.properties'
 
