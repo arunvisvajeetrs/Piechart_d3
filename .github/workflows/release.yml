@@ -3,6 +3,7 @@ name: Automate github release
 # This is triggered only when a Pull Request is merged to master and version in package json changes
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - master
