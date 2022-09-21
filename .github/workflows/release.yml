@@ -1,4 +1,4 @@
-name: Automate github release
+name: Release
 # Pushes a tag whenever the version in package.json changes and creates a github release
 # This is triggered only when a Pull Request is merged to master and version in package json changes
 
