@@ -1,6 +1,8 @@
 name: Build and deploy to Prod
 
-on: workflow_dispatch
+on:
+  release:
+    types: [published]
 
 jobs:
   build-and-deploy:
