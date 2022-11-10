@@ -30,7 +30,7 @@ jobs:
         with:
           tag_prefix: "v"
       - name: Create a Release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.11.1
         with:
           generateReleaseNotes: true
           prerelease: ${{ contains(steps.create_tag.outputs.tagname, '-beta.') }}
